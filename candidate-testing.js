@@ -5,8 +5,8 @@ const input = require('readline-sync');
 // TODO 1.1a: Define candidateName // 
 let candidateName;
 // TODO 1.2a: Define question, correctAnswer, and candidateAnswer //
-let question;
-let correctAnswer;
+let question = "Who was the first American woman in space? ";
+let correctAnswer = "Sally Ride";
 let candidateAnswer;
 
 
@@ -23,14 +23,17 @@ function askForName() {
 
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
-
-
+  candidateAnswer = input.question(question);
 }
 
 function gradeQuiz(candidateAnswers) {
-
+  
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
-
+  if (candidateAnswer === correctAnswer) {
+    console.log("Correct Answer! Congrats")
+  } else {
+    console.log("Incorrect answer.")
+  }
 
 
   let grade;  //TODO 3.2 use this variable to calculate the candidates score.
@@ -42,10 +45,12 @@ function gradeQuiz(candidateAnswers) {
 function runProgram() {
   askForName();
   // TODO 1.1c: Greet candidate using their name //
-   console.log();
+   console.log(`Hello, ${candidateName}`);
   askQuestion();
   gradeQuiz(this.candidateAnswers);
 }
+
+runProgram();
 
 // ----------- Don't write any code or change any code below this line ---------- //
 module.exports = {
