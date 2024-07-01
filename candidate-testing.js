@@ -59,7 +59,41 @@ function gradeQuiz(candidateAnswers) {
       grade += 1;
     }
   }
+  let gradeNumber = grade;
   grade = grade / questions.length * 100;
+
+  let passStatus = "";
+  if (gradeNumber >= 4) {
+    passStatus = "PASSED";
+  } else {
+    passStatus = "FAILED";
+  }
+
+  console.log(`
+    Candidate Name: ${candidateName}
+    1) Who was the first American woman in space?
+    Your Answer: ${candidateAnswers[0]}
+    Correct Answer: Sally Ride
+
+    2) True or false: 5000 meters = 5 kilometers.
+    Your Answer: ${candidateAnswers[1]}
+    Correct Answer: true
+
+    3) (5 + 3)/2 * 10 = ?
+    Your Answer: ${candidateAnswers[2]}
+    Correct Answer: 40
+
+    4) Given the array [8, "Orbit", "Trajectory", 45], what entry is at index 2?
+    Your Answer: ${candidateAnswers[3]}
+    Correct Answer: Trajectory
+
+    5) What is the minimum crew size for the ISS?
+    Your Answer: ${candidateAnswers[4]}
+    Correct Answer: 3
+
+    >>> Overall Grade: ${grade}% (${gradeNumber} of 5 responses correct) <<<
+    >>> Status: ${passStatus} <<<
+  `)
 
   return grade;
 }
@@ -67,7 +101,7 @@ function gradeQuiz(candidateAnswers) {
 function runProgram() {
   askForName();
   // TODO 1.1c: Greet candidate using their name //
-   console.log(`Hello, ${candidateName}`);
+  console.log(`Hello, ${candidateName}`);
   askQuestion();
   gradeQuiz(candidateAnswers);
 }
