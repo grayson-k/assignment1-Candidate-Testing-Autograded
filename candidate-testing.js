@@ -106,8 +106,6 @@ function runProgram() {
   gradeQuiz(candidateAnswers);
 }
 
-runProgram();
-
 // ----------- Don't write any code or change any code below this line ---------- //
 module.exports = {
   candidateName: candidateName,
